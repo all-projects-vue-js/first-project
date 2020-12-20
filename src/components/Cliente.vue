@@ -1,5 +1,5 @@
 <template>
-  <div id="cliente">
+  <div :class="{ 'cliente': !isPremium, 'cliente-premium': isPremium }">
     <input type="text" v-model="nome" />
     <h2>Nome: {{ cliente.nome }}</h2>
     <h2 v-if="showIdade === true">Idade: {{ cliente.idade }}</h2>
@@ -12,7 +12,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      isPremium: false,
+    };
   },
   props: {
     cliente: Object,
@@ -22,12 +24,21 @@ export default {
 </script>
 
 <style scoped>
-#cliente {
+.cliente {
   max-width: 340px;
   height: 180px;
   padding: 1%;
   margin-top: 2%;
   color: rgb(74, 141, 228);
   background-color: rgb(169, 184, 230);
+}
+
+.cliente-premium {
+  max-width: 340px;
+  height: 180px;
+  padding: 1%;
+  margin-top: 2%;
+  color: rgb(224, 210, 13);
+  background-color: rgb(10, 11, 12);
 }
 </style>
