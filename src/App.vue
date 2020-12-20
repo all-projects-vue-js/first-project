@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h1>Guia Clientes</h1>
-    <Cliente nome="Henrique Ramires" idade="29"/>
-
+    <input type="text" v-model="clienteHenrique.nome" />
+    <Cliente :cliente="clienteHenrique" />
   </div>
 </template>
 
@@ -10,8 +10,16 @@
 import Cliente from "./components/Cliente";
 export default {
   name: "App",
+  data() {
+    return {
+      clienteHenrique: {
+        nome: "Henrique Ramires",
+        idade: 28,
+      },
+    };
+  },
   components: {
-    Cliente
+    Cliente,
   },
 };
 </script>

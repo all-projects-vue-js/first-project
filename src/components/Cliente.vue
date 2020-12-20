@@ -1,8 +1,8 @@
 <template>
   <div id="cliente">
     <input type="text" v-model="nome" />
-    <h2>Nome: {{ nome }}</h2>
-    <h2>Idade: {{ idade }}</h2>
+    <h2>Nome: {{ cliente.nome }}</h2>
+    <h2>Idade: {{ cliente.idade }}</h2>
     <hr />
   </div>
 </template>
@@ -13,8 +13,7 @@ export default {
     return {};
   },
   props: {
-    nome: String,
-    idade: Number,
+    cliente: Object,
   },
 };
 </script>
