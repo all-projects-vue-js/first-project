@@ -1,5 +1,6 @@
 <template>
   <div id="cliente">
+    <input type="text" :value="nome" />
     <h2>Nome: {{ nome }}</h2>
     <h2>Idade: {{ idade }}</h2>
     <hr />
