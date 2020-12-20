@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Guia Clientes</h1>
-    <Cliente />
+    <Cliente nome="Henrique Ramires" idade="29"/>
 
   </div>
 </template>

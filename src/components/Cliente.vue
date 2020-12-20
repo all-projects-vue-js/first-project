@@ -10,10 +10,11 @@
 <script>
 export default {
   data() {
-    return {
-      nome: "Henrique Ramires",
-      idade: 29,
-    };
+    return {};
+  },
+  props: {
+    nome: String,
+    idade: Number,
   },
 };
 </script>
@@ -21,7 +22,7 @@ export default {
 <style scoped>
 #cliente {
   max-width: 340px;
-  height: 120px;
+  height: 150px;
   padding: 1%;
   margin-top: 2%;
   color: rgb(74, 141, 228);
