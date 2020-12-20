@@ -2,7 +2,9 @@
   <div id="cliente">
     <input type="text" v-model="nome" />
     <h2>Nome: {{ cliente.nome }}</h2>
-    <h2>Idade: {{ cliente.idade }}</h2>
+    <h2 v-if="showIdade === true">Idade: {{ cliente.idade }}</h2>
+    <h2 v-else>Escondeu a idade</h2>
+    <h2 v-show="showIdade">Mostrar a idade v-show</h2>
     <hr />
   </div>
 </template>
@@ -14,6 +16,7 @@ export default {
   },
   props: {
     cliente: Object,
+    showIdade: Boolean,
   },
 };
 </script>
@@ -21,7 +24,7 @@ export default {
 <style scoped>
 #cliente {
   max-width: 340px;
-  height: 150px;
+  height: 180px;
   padding: 1%;
   margin-top: 2%;
   color: rgb(74, 141, 228);

@@ -2,7 +2,8 @@
   <div id="app">
     <h1>Guia Clientes</h1>
     <input type="text" v-model="clienteHenrique.nome" />
-    <Cliente :cliente="clienteHenrique" />
+    <Cliente :cliente="clienteHenrique" :showIdade="true" />
+     <Cliente :cliente="clienteHenrique" :showIdade="false" />
   </div>
 </template>
 
