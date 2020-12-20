@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <h1>Guia Clientes</h1>
-    <input type="text" v-model="clienteHenrique.nome" />
-    <Cliente :cliente="clienteHenrique" :showIdade="true" />
-     <Cliente :cliente="clienteHenrique" :showIdade="false" />
+    <div v-for="(cliente, index) in clientes" :key="cliente.id">
+      <h4>{{ index }}</h4>
+      <input type="text" v-model="cliente.nome" />
+      <Cliente :cliente="cliente" :showIdade="true" />
+    </div>
   </div>
 </template>
 
@@ -13,10 +15,23 @@ export default {
   name: "App",
   data() {
     return {
-      clienteHenrique: {
-        nome: "Henrique Ramires",
-        idade: 28,
-      },
+      clientes: [
+        {
+          id: 0,
+          nome: "Henrique Ramires",
+          idade: 28,
+        },
+        {
+          id: 1,
+          nome: "Fernando Moraes",
+          idade: 48,
+        },
+        {
+          id: 2,
+          nome: "Paulo Andre",
+          idade: 25,
+        },
+      ],
     };
   },
   components: {
