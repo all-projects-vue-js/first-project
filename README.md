@@ -24,7 +24,16 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Create project
+```
 vue create <project>
+```
 
 ### Run
+```
 npm run serve
+```
+
+### Extension autocomplete
+```
+vector
+```
