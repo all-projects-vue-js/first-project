@@ -1,7 +1,7 @@
 <template>
   <div :class="{ cliente: !isPremium, 'cliente-premium': isPremium }">
     <input type="text" v-model="nome" />
-    <h2>Nome: {{ cliente.nome }}</h2>
+    <h2>Nome: {{ cliente.nome | processarNome }}</h2>
     <h2 v-if="showIdade === true">Idade: {{ cliente.idade }}</h2>
     <h2 v-else>Escondeu a idade</h2>
     <h2 v-show="showIdade">Mostrar a idade v-show</h2>
@@ -34,6 +34,11 @@ export default {
     testar: function () {
       console.log("Testando para valer!");
       alert("Isso é um alert!");
+    },
+  },
+  filters: {
+    processarNome: function (value) {
+      return value.toUpperCase();
     },
   },
 };
