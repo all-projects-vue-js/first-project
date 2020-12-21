@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h3>Cadastro</h3>
+    <small id="nomeErro" v-show="deuErro">O nome é invalido.</small> <br />
     <input type="text" placeholder="nome" v-model="nomeField" /> <br />
     <input type="text" placeholder="Idade" v-model="idadeField" /> <br />
     <button @click="cadastrarFuncionarios()">Cadastrar</button>
@@ -19,6 +20,7 @@ export default {
   name: "App",
   data() {
     return {
+      deuErro: false,
       nomeField: "",
       idadeField: "",
       clientes: [
@@ -45,13 +47,23 @@ export default {
   },
   methods: {
     cadastrarFuncionarios: function () {
-      this.clientes.push({
-        nome: this.nomeField,
-        idade: this.idadeField,
-        id: Date.now,
-      });
-      this.nomeField = "";
-      this.idadeField = "";
+      if (
+        this.nomeField == "" ||
+        this.nomeField == " " ||
+        this.nomeField.length < 3
+      ) {
+        this.deuErro = true;
+        console.log("Erro de validacao");
+      } else {
+        this.deuErro = false;
+        this.clientes.push({
+          nome: this.nomeField,
+          idade: this.idadeField,
+          id: Date.now,
+        });
+        this.nomeField = "";
+        this.idadeField = "";
+      }
     },
   },
 };
@@ -65,5 +77,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#nomeErro {
+  color: red;
 }
 </style>
