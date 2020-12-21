@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <h3>Cadastro</h3>
+    <input type="text" placeholder="nome" v-model="nomeField" /> <br />
+    <input type="text" placeholder="Idade" v-model="idadeField" /> <br />
+    <button @click="cadastrarFuncionarios()">Cadastrar</button>
     <h1>Guia Clientes</h1>
     <div v-for="(cliente, index) in clientes" :key="cliente.id">
       <h4>{{ index }}</h4>
@@ -15,6 +19,8 @@ export default {
   name: "App",
   data() {
     return {
+      nomeField: "",
+      idadeField: "",
       clientes: [
         {
           id: 0,
@@ -36,6 +42,17 @@ export default {
   },
   components: {
     Cliente,
+  },
+  methods: {
+    cadastrarFuncionarios: function () {
+      this.clientes.push({
+        nome: this.nomeField,
+        idade: this.idadeField,
+        id: Date.now,
+      });
+      this.nomeField = "";
+      this.idadeField = "";
+    },
   },
 };
 </script>
