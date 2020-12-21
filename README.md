@@ -42,3 +42,7 @@ vector
 ```
 npm i --save lodash
 ```
+
+npm install --save core-js   
+
+npm install bulma
