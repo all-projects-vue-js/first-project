@@ -7,6 +7,7 @@
     <h2 v-show="showIdade">Mostrar a idade v-show</h2>
     <button @click="mudarCor($event)">Mudar a cor</button>
     <button @click="emirtirEventoDelete()">Deletar</button>
+    <h4>Id especial: {{ idEspecial }}</h4>
     <hr />
   </div>
 </template>
@@ -39,6 +40,11 @@ export default {
   filters: {
     processarNome: function (value) {
       return value.toUpperCase();
+    },
+  },
+  computed: {
+    idEspecial: function () {
+      return (this.cliente.nome + this.cliente.idade).toUpperCase();
     },
   },
 };
