@@ -37,3 +37,8 @@ npm run serve
 ```
 vector
 ```
+
+### Lodash
+```
+npm i --save lodash
+```
