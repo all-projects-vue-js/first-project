@@ -8,8 +8,7 @@
     <h1>Guia Clientes</h1>
     <div v-for="(cliente, index) in clientes" :key="cliente.id">
       <h4>{{ index }}</h4>
-      <input type="text" v-model="cliente.nome" />
-      <Cliente :cliente="cliente" :showIdade="true" />
+      <Cliente :cliente="cliente" @meDelete="deletarUsuario($event)" />
     </div>
   </div>
 </template>
@@ -64,6 +63,15 @@ export default {
         this.nomeField = "";
         this.idadeField = "";
       }
+    },
+    deletarUsuario: function ($event) {
+      console.log("Recebendo evento");
+      console.log($event.idCoCliente);
+      $event.component.testar();
+
+      var id = $event.idCoCliente;
+      var novoArray = this.clientes.filter((cliente) => cliente.id != id);
+      this.clientes = novoArray;
     },
   },
 };
